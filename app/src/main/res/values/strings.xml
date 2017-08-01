@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">streem</string>
+    <string name="etName">name</string>
+    <string name="etUsername">username</string>
+    <string name="etEmail">email</string>
+    <string name="etPassword">password</string>
+    <string name="signupbtn">sign up</string>
+    <string name="signin_btn">sign in</string>
+    <string name="tv_signup">sign up</string>
+    <string name="input_put">write message</string>
+    <string name="tvWelcomeMsg">welcome</string>
+    <string name="etUsernameRegister">choose username</string>
+    <string name="etPasswordRegister">choose password</string>
+    <string name="login">login</string>
+</resources>

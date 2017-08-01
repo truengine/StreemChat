@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "529190416018",
+    "firebase_url": "https://androidchatapp-facea.firebaseio.com",
+    "project_id": "androidchatapp-facea",
+    "storage_bucket": "androidchatapp-facea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529190416018:android:e7ccd20ee7844ed1",
+        "android_client_info": {
+          "package_name": "com.example.truengine.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529190416018-put2dmjbo16r24eav4pfk789lb3lmood.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKIxnGkEyzabLevLF3KpzcsSH5Gr2z8aw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
