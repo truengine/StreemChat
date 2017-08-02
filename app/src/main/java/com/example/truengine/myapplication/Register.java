@@ -4,6 +4,24 @@ package com.example.truengine.myapplication;
  * Created by truengine on 7/31/2017.
  */
 
+/*
+* Here, we import the Android elements we will need for our chat app.
+* 1. ProgressDialog: used to show progress for tasks
+* 2. Intent: used to execute actions with data, such as starting activities; operationally, "connects" activities
+* 3. Bundle: used to contain data retrieved from intents; basically, data objects (parcels) can be formed by intents
+*     then consumed by bundles.the point is to generate data in one activity and then use it in another activity.
+* 4. AppCompatActivity: according to developer.android.com:
+*     Base class for activities that use the support library action bar features. So, allows use of action bar features.
+* 5. View, widgets: Views are contexts/containers for functional elements (widgets) like (editable) text boxes, buttons, etc.
+*    Toast: a special kind of view used to show messages to app user
+* 6. volley.Request: used to request/retrieve data from a URL. Here, we need to request JSON objects from our Firebase database
+*     Volley: technotalkative.com: library that manages the processing and caching of network requests
+* 7. volley.RequestQueue: used to handle (transmit, cache, cancel, etc) requests to database/network communication
+* 8. firebase.client.Firebase: Firebase library
+* 9. JSONException: used to handle JSON errors
+* 10. JSONObject: needed to use JSON objects, which are basically units of database data in key-value pairs
+* */
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +49,15 @@ public class Register extends AppCompatActivity {
     Button registerButton;
     String user, pass;
     TextView login;
+
+    /**
+     * the saved state of the app is stored in a bundle, which is then passed
+     * to the onCreate method to restore the state of the registration screen
+     *
+     * @param  savedInstanceState
+     * @link Bundle
+     * */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +67,16 @@ public class Register extends AppCompatActivity {
         registerButton = (Button)findViewById(R.id.signupbtn);
         login = (TextView)findViewById(R.id.login);
 
+        /**
+         * Initializes firebase library in app-specific context,
+         * ie specific to app activities and intents. Kind of like
+         *  assigning a library card (setAndroidContext) to a patron(this).
+         * */
         Firebase.setAndroidContext(this);
 
+        /**
+         * Links user back to login screen when sign in button is clicked from registration screen
+         * */
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +84,16 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        /**
+         * Converts user inputs (username & password) to strings
+         * and checks these are not empty, alphanumeric, and minimum character count
+         * A somewhat humorous progress dialogue is shown
+         * while the firebase database is accessed via a request to the users node
+         * which holds JSON key value pairs for username and password.
+         * if the user string does not exist, there is a Toast saying so, and registration is successful
+         * or if there is a user match, then another Toast is shown saying the user already exists
+         * the progress dialogue ends, and then the login request is added to a new Volley RequestQueue
+         * */
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
